@@ -3,9 +3,10 @@ var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
+var open = require('gulp-open');
 
 // Task
-gulp.task('default', function () {
+gulp.task('default', ['open'], function () {
     // listen for changes
     livereload.listen();
     // configure nodemon
@@ -19,4 +20,13 @@ gulp.task('default', function () {
             .pipe(livereload())
             .pipe(notify('Reloading page, please wait...'));
     })
-})
+});
+
+gulp.task('open', function () {
+    var options = {
+        uri: 'http://localhost:3000',
+        app: 'chrome'
+    };
+    gulp.src(__filename)
+        .pipe(open(options));
+});

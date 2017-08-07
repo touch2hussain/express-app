@@ -21,6 +21,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-notify": "^3.0.0",
+    "gulp-open": "^2.0.0",
     "nodemon": "^1.11.0"
   }
 }
